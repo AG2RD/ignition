@@ -11,5 +11,7 @@ export {
 	Input,
 	Number,
 	prompt,
+	Select,
 } from 'https://deno.land/x/cliffy@v0.25.4/prompt/mod.ts';
 export { serve } from 'https://deno.land/std@0.161.0/http/server.ts';
+export { Cell, Table } from 'https://deno.land/x/cliffy@v0.25.4/table/mod.ts';
