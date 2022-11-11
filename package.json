@@ -1,0 +1,5 @@
+{
+  "name": "ignition",
+  "module": "main.ts",
+  "type": "module"
+}
