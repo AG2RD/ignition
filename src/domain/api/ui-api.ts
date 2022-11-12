@@ -1,3 +1,3 @@
 export interface UIClientAPI {
-    initClient:() => void;
+	initClient: () => void;
 }

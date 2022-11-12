@@ -2,7 +2,7 @@ import { UserInstallationPreference } from '../models/user-installation-preferen
 
 export interface InstallationUIAPI {
 	installApplication: (
-		preference?: UserInstallationPreference,
+		preference: UserInstallationPreference,
 	) => boolean;
 
 	createDirectories: () => void;

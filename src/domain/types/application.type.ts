@@ -6,5 +6,11 @@ export type SnapApplication =
 	| 'slack'
 	| 'figma'
 	| 'brave'
+	| 'vlc'
+	| 'krita'
 	| 'firefox'
 	| 'chrome';
+
+export type ShellApplication = '';
+
+export type Library = 'zsh' | 'node' | 'yarn';

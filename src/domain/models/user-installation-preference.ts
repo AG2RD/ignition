@@ -1,4 +1,10 @@
-import { SnapApplication } from './../types/application.type.ts';
+import {
+	Library,
+	ShellApplication,
+	SnapApplication,
+} from './../types/application.type.ts';
 export interface UserInstallationPreference {
-	'snapApplicationList': Array<SnapApplication>;
+	'snapApplications': Array<SnapApplication>;
+	'shellApplications': Array<ShellApplication>;
+	'libraries': Array<Library>;
 }
