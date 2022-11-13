@@ -1,13 +1,11 @@
-import {
-	Library,
-	ShellApplication,
-	SnapApplication,
-} from '../types/application.type.ts';
 
+import { SnapApplications } from '../types/application.type.ts';
+import { Libraries } from '../types/library.type.ts';
+import { ShellApplications } from '../types/shell.type.ts';
 export interface InstallationSPI {
-	installSnapApplications: (snapApplications: Array<SnapApplication>) => void;
+	installSnapApplications: (snapApplications: Array<SnapApplications>) => void;
 	installShellApplications: (
-		shellApplications: Array<ShellApplication>,
+		shellApplications: Array<ShellApplications>,
 	) => void;
-	installLibraries: (libraries: Array<Library>) => void;
+	installLibraries: (libraries: Array<Libraries>) => void;
 }

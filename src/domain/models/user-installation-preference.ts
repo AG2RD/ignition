@@ -1,10 +1,8 @@
-import {
-	Library,
-	ShellApplication,
-	SnapApplication,
-} from './../types/application.type.ts';
+import { Libraries } from '../types/library.type.ts';
+import { ShellApplications } from '../types/shell.type.ts';
+import { SnapApplications } from './../types/application.type.ts';
 export interface UserInstallationPreference {
-	'snapApplications': Array<SnapApplication>;
-	'shellApplications': Array<ShellApplication>;
-	'libraries': Array<Library>;
+	'libraries': Array<Libraries>;
+	'shellApplications': Array<ShellApplications>;
+	'snapApplications': Array<SnapApplications>;
 }

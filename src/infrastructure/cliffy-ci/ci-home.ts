@@ -4,14 +4,19 @@ import {
 	ApplicationFeatures,
 	ApplicationFeaturesEnum,
 } from '../../domain/types/feature.type.ts';
-import { Checkbox, Confirm, Input, Number, prompt, Select } from '../deps.ts';
+import { Select } from '../deps.ts';
+import { CliffyCIInstallation } from './ci-installation.ts';
 import { logo } from './logo.ts';
 /* ts */
 export class CliffyCIHome implements UIClientAPI {
 	installationService;
 	actions = {
-		[ApplicationFeaturesEnum.INSTALLATION]: () =>
-			this.installationService.installApplication(),
+		[ApplicationFeaturesEnum.INSTALLATION]: () => {
+			const installationMenu = new CliffyCIInstallation(
+				this.installationService,
+			);
+			return installationMenu.showMenu();
+		},
 		[ApplicationFeaturesEnum.CREATION_DIRECTORIES]: () =>
 			this.installationService.createDirectories(),
 		[ApplicationFeaturesEnum.SYNC_ACCOUNTS]: () => this.syncAccount(),
@@ -24,7 +29,7 @@ export class CliffyCIHome implements UIClientAPI {
 
 	async initClient() {
 		const userChoice = await this.renderMainMenu();
-		this.actions[userChoice]();
+		const view = this.actions[userChoice]();
 	}
 
 	private async renderMainMenu(): Promise<ApplicationFeatures> {
@@ -46,29 +51,6 @@ export class CliffyCIHome implements UIClientAPI {
 				{ name: 'exit', value: ApplicationFeaturesEnum.EXIT },
 			],
 		}) as ApplicationFeatures;
-	}
-
-	private async showUserPrompt() {
-		const result = await prompt([{
-			name: 'name',
-			message: 'What\'s your name?',
-			type: Input,
-		}, {
-			name: 'age',
-			message: 'How old are you?',
-			type: Number,
-		}, {
-			name: 'like',
-			message: 'Do you like animals?',
-			type: Confirm,
-		}, {
-			name: 'animals',
-			message: 'Select some animals',
-			type: Checkbox,
-			options: ['dog', 'cat', 'snake'],
-		}]);
-		this.installationService.installApplication(result);
-		return true;
 	}
 
 	private async syncAccount() {

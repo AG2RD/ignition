@@ -1,8 +1,8 @@
 export enum ApplicationFeaturesEnum {
-	INSTALLATION = 'INSTALLATION',
 	CREATION_DIRECTORIES = 'CREATION_DIRECTORIES',
-	SYNC_ACCOUNTS = 'SYNC_ACCOUNTS',
 	EXIT = 'EXIT',
+	INSTALLATION = 'INSTALLATION',
+	SYNC_ACCOUNTS = 'SYNC_ACCOUNTS',
 }
 
 export type ApplicationFeatures = keyof typeof ApplicationFeaturesEnum;
