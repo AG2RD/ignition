@@ -3,7 +3,6 @@ import {
 	SnapApplicationEnum,
 	SnapApplications,
 } from '../../domain/types/application.type.ts';
-import { Libraries, LibraryEnum } from '../../domain/types/library.type.ts';
 import {
 	ShellApplicationEnum,
 	ShellApplications,
@@ -17,15 +16,6 @@ export class CliffyCIInstallation {
 	}
 	async showMenu() {
 		const result = await prompt([{
-			name: 'libraries',
-			message: 'Which libraries do you want install?',
-			type: Checkbox,
-			options: Object.keys(LibraryEnum).map((opt) => ({
-				name: opt,
-				value: opt,
-				checked: true,
-			})),
-		}, {
 			name: 'shellApplications',
 			message: 'Which applications do you want install?',
 			type: Checkbox,
@@ -46,7 +36,6 @@ export class CliffyCIInstallation {
 		}]);
 
 		this.installationService.installApplication({
-			libraries: result.libraries as Array<Libraries>,
 			shellApplications: result.shellApplications as Array<
 				ShellApplications
 			>,

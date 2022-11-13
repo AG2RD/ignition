@@ -9,8 +9,6 @@ export class InstallationService implements InstallationUIAPI {
 	}
 	installApplication(preference: UserInstallationPreference): boolean {
 		console.log('installation init');
-		console.log('install libraries');
-		this.installationService.installLibraries(preference.libraries);
 		console.log('install shell application');
 		this.installationService.installShellApplications(
 			preference.shellApplications,
